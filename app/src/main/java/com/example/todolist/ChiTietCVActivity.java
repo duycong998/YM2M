@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class ChiTietCVActivity extends AppCompatActivity {
@@ -18,5 +19,6 @@ public class ChiTietCVActivity extends AppCompatActivity {
         CongViec congViec = (CongViec) intent.getSerializableExtra("congdeptrai");
 
         txtHienthi.setText(congViec.getTenCV());
+        Log.e("Test log", "this is test log.");
     }
 }
