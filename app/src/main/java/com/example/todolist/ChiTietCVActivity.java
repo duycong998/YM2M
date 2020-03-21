@@ -21,10 +21,7 @@ public class ChiTietCVActivity extends AppCompatActivity {
         txtHienthi.setText(congViec.getTenCV());
         Log.e("Test log", "this is test log.");
 
-
-        Log.e("Test conflict", "this is test log.");
-
-        Log.e("Test retrofit", "this is test log.");
+        Log.d("aaa","bbb");
 
     }
 }
