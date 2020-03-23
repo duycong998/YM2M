@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,8 +17,9 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.todolist.Retrofit.Data;
 
 import java.util.ArrayList;
 
@@ -28,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
     ListView lsvCV;
     ArrayList<CongViec> arrayCV;
     CongViecAdapter adapter;
+    Button btnRT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        btnRT= findViewById(R.id.btnRetrofit);
         lsvCV = (ListView) findViewById(R.id.listviewCV);
         arrayCV = new ArrayList<>();
 
@@ -58,6 +59,18 @@ public class MainActivity extends AppCompatActivity {
                 ChiTietCV(arrayCV.get(position));
             }
         });
+
+        btnRT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataR();
+            }
+        });
+    }
+
+    private void DataR(){
+        Intent intent = new Intent(MainActivity.this,RetrofitActivity.class);
+        startActivity(intent);
     }
     private void ChiTietCV(CongViec cv){
         Intent intent = new Intent(MainActivity.this, ChiTietCVActivity.class);
@@ -146,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
                 dialogSua.cancel();
             }
         });
-
         dialogSua.show();
     }
 

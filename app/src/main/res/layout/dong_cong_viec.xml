@@ -5,6 +5,8 @@
     android:padding="10dp"
     android:weightSum="10"
     android:layout_height="match_parent">
+
+
     <TextView
         android:background="#C8CFC9"
         android:id="@+id/txtTenCV"
@@ -16,6 +18,7 @@
         android:text="Nhập Tên Công Việc"
         android:textColor="#FF02"
         android:textSize="25dp" />
+
 
     <ImageView
         android:layout_marginLeft="10dp"

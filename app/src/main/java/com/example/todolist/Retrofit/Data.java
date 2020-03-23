@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface Data {
 
-    @GET("/api/v1/employees")
-    Call<List<Datum>> getAll();
+    @GET("posts")
+    Call<List<Employee>> getAll();
 }
