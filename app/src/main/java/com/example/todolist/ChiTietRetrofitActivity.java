@@ -26,7 +26,7 @@ public class ChiTietRetrofitActivity extends AppCompatActivity {
         content += "ID :" + employee.getId() + "\n";
         content += "User ID :" + employee.getUserId() + "\n";
         content += "Title :" + employee.getTitle() + "\n";
-        content += "Text :" + employee.getTitle() + "\n";
+        content += "Text :" + employee.getBody() + "\n";
         txtContent.append(content);
 
 
