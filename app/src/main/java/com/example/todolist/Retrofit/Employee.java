@@ -26,11 +26,20 @@ public class Employee implements Serializable {
         @Expose
         private String body;
 
-    public Employee(int userId, String title, String body) {
-        this.userId = userId;
-        this.title = title;
-        this.body = body;
-    }
+
+
+//    public Employee(int userId, String title, String body) {
+//        this.userId = userId;
+//        this.title = title;
+//        this.body = body;
+//    }
+
+//    public Employee(int userId, Integer id, String title, String body) {
+//        this.userId = userId;
+//        this.id = id;
+//        this.title = title;
+//        this.body = body;
+//    }
 
 
 //    public Employee(Integer userId, Integer id, String title, String body) {

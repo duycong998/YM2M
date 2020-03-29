@@ -1,5 +1,7 @@
 package com.example.todolist.Retrofit;
 
+import android.util.Log;
+
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIUtils {
@@ -8,5 +10,6 @@ public class APIUtils {
 
     public static Data getData(){
     return Retrofit.getClient(BASE_URL).create(Data.class);
+
     }
 }

@@ -19,8 +19,10 @@ public class ChiTietRetrofitActivity extends AppCompatActivity {
         txtContent = findViewById(R.id.txtTT);
 
         Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        Employee employee = (Employee) bundle.getSerializable("congdeptrai");
+
+        Employee employee = (Employee) intent.getSerializableExtra("congdeptrai");
+//        Bundle bundle = intent.getExtras();
+//        Employee employee = (Employee) bundle.getSerializable("congdeptrai");
 
         String content = "";
         content += "ID :" + employee.getId() + "\n";

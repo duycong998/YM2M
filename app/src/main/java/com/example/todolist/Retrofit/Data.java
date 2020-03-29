@@ -34,4 +34,7 @@ public interface Data {
 
     @DELETE("posts/{id}")
     Call<Employee> deleteEmployee(@Path("id") int  id);
+
+
+   void onClick(Employee employee);
 }

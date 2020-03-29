@@ -23,5 +23,6 @@ public class ChiTietCVActivity extends AppCompatActivity {
 
         Log.d("aaa","bbb");
 
+
     }
 }

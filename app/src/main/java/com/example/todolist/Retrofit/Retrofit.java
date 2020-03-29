@@ -1,5 +1,7 @@
 package com.example.todolist.Retrofit;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -24,7 +26,6 @@ public class Retrofit  {
                .client(builder)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
-
         return retrofit;
     }
 
