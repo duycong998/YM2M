@@ -1,5 +1,9 @@
 package com.example.todolist.Retrofit;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.SerializedName;
 
 
@@ -7,24 +11,30 @@ import com.google.gson.annotations.Expose;
 
 import java.io.Serializable;
 
-
+@Entity (tableName = "employee")
 public class Employee implements Serializable {
 
+        @ColumnInfo(name = "userId")
         @SerializedName("userId")
         @Expose
         private int userId;
 
+        @PrimaryKey
+        @ColumnInfo(name = "id")
         @SerializedName("id")
         @Expose
         private Integer id;
 
+        @ColumnInfo(name = "title")
         @SerializedName("title")
         @Expose
         private String title;
 
+        @ColumnInfo(name = "body")
         @SerializedName("body")
         @Expose
         private String body;
+
 
 
 
@@ -34,12 +44,14 @@ public class Employee implements Serializable {
 //        this.body = body;
 //    }
 
-//    public Employee(int userId, Integer id, String title, String body) {
-//        this.userId = userId;
-//        this.id = id;
-//        this.title = title;
-//        this.body = body;
-//    }
+
+
+    public Employee(int userId, Integer id, String title, String body) {
+        this.userId = userId;
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
 
 
 //    public Employee(Integer userId, Integer id, String title, String body) {

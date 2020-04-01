@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.todolist.R;
+import com.example.todolist.Room.EmployeeDao;
+import com.example.todolist.Room.EmployeeDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+
         holder.txtID.setText("ID : " + arrayEmployee.get(position).getId().toString());
         holder.txtUserID.setText("User ID : " + arrayEmployee.get(position).getUserId().toString());
         holder.txtTitle.setText("Title : " + arrayEmployee.get(position).getTitle());
