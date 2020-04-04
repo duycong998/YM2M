@@ -14,27 +14,29 @@ import retrofit2.http.Path;
 
 public interface Data {
 
-    @GET("posts")
+//    @GET("posts")
+//    Call<List<Employee>> getAll();
+//
+//
+//    @POST("posts")
+//    Call<Employee> creatEmployee(@Body Employee employee);
+//
+//    @POST("posts")
+//    @FormUrlEncoded
+//    Call<Employee> saveEmployee(@Field("userId") int userId,
+//                        @Field("title") String title,
+//                        @Field("body") String body);
+//
+//
+//    @PUT("posts/{id}")
+//    Call<Employee> updateEmployee(@Path("id") int id, @Body Employee employee);
+//
+//
+//    @DELETE("posts/{id}")
+//    void deleteEmployee(@Path("id") int  id);
+    @GET("photos")
     Call<List<Employee>> getAll();
 
 
-    @POST("posts")
-    Call<Employee> creatEmployee(@Body Employee employee);
-
-    @POST("posts")
-    @FormUrlEncoded
-    Call<Employee> saveEmployee(@Field("userId") int userId,
-                        @Field("title") String title,
-                        @Field("body") String body);
-
-
-    @PUT("posts/{id}")
-    Call<Employee> updateEmployee(@Path("id") int id, @Body Employee employee);
-
-
-    @DELETE("posts/{id}")
-    Call<Employee> deleteEmployee(@Path("id") int  id);
-
-
-   void onClick(Employee employee);
+    void onClick(Employee employee);
 }

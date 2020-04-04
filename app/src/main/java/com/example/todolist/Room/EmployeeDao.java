@@ -28,6 +28,6 @@ public interface EmployeeDao {
     @Delete
     void deleteCV(Employee... employee);
 
-    @Query("SELECT * FROM employee")
+    @Query("SELECT * FROM picture")
     List<Employee> getAlphabetizedWords();
 }

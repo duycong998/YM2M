@@ -10,6 +10,5 @@ public class APIUtils {
 
     public static Data getData(){
     return Retrofit.getClient(BASE_URL).create(Data.class);
-
     }
 }

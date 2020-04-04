@@ -26,7 +26,7 @@ public abstract class EmployeeDatabase extends RoomDatabase {
             synchronized (EmployeeDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            EmployeeDatabase.class, "employeee")
+                            EmployeeDatabase.class, "picture")
                             .allowMainThreadQueries()
                             .build();
                 }

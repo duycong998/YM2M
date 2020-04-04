@@ -2,35 +2,39 @@ package com.example.todolist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.todolist.Retrofit.Employee;
+import com.squareup.picasso.Picasso;
 
 public class ChiTietRetrofitActivity extends AppCompatActivity {
- //  public static final String KEY = "employee_object";
-    TextView txtContent;
-
+    ImageView imgOne,imgTwo;
+    TextView txtAlbumCT,txtIdCT,txtTitleCT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet_retrofit);
-        txtContent = findViewById(R.id.txtTT);
-
+        initView();
         Intent intent = getIntent();
-
-        Employee employee = (Employee) intent.getSerializableExtra("congdeptrai");
-//        Bundle bundle = intent.getExtras();
-//        Employee employee = (Employee) bundle.getSerializable("congdeptrai");
-
-        String content = "";
-        content += "ID :" + employee.getId() + "\n";
-        content += "User ID :" + employee.getUserId() + "\n";
-        content += "Title :" + employee.getTitle() + "\n";
-        content += "Text :" + employee.getBody() + "\n";
-        txtContent.append(content);
+        Employee picture = (Employee) intent.getSerializableExtra("congdeptrai");
 
 
+        txtAlbumCT.setText("AlbumID " + picture.getAlbumId());
+        txtIdCT.setText("ID " +picture.getId());
+        txtTitleCT.setText("Title "+ picture.getTitle());
+        Picasso.get().load(picture.getUrl()).into(imgOne);
+        Picasso.get().load(picture.getThumbnailUrl()).into(imgTwo);
+
+    }
+
+    private void initView() {
+        imgOne     = findViewById(R.id.idImgUrlCT);
+        imgTwo     = findViewById(R.id.idThumbnailCT);
+        txtAlbumCT = findViewById(R.id.txtAlbumCT);
+        txtIdCT    = findViewById(R.id.txtIdCT);
+        txtTitleCT = findViewById(R.id.txtTitleCT);
     }
 }

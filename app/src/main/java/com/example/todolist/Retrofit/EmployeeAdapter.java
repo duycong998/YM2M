@@ -2,43 +2,36 @@ package com.example.todolist.Retrofit;
 
 
 import android.content.Context;
+import android.graphics.Picture;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.todolist.R;
-import com.example.todolist.Room.EmployeeDao;
-import com.example.todolist.Room.EmployeeDatabase;
 
-import java.util.ArrayList;
+import com.example.todolist.R;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-import retrofit2.Callback;
-
 public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
-    ArrayList<Employee> arrayEmployee;
-    Context context;
+    private Context context;
+    private List<Employee> employeeList;
 
     Data onClick;
+
 
     public void setOnClick(Data onClick) {
         this.onClick = onClick;
     }
-    //    OnItemClick onClick;
-//
-//    public void setOnClick(OnItemClick onClick) {
-//        this.onClick = onClick;
-//    }
 
-    public EmployeeAdapter(ArrayList<Employee> arrayEmployee, Context context) {
-        this.arrayEmployee = arrayEmployee;
+    public EmployeeAdapter(Context context, List<Employee> employeeList) {
         this.context = context;
+        this.employeeList = employeeList;
     }
 
     @NonNull
@@ -46,48 +39,48 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.custom_row,parent,false);
-
         return new ViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final Employee employee = employeeList.get(position);
+        holder.txtAlbum.setText("AlbumID : " + employee.getAlbumId());
+        holder.txtId.setText("ID : " + employee.getId());
+        holder.txtTitle.setText("Title : " + employee.getTitle());
 
-        holder.txtID.setText("ID : " + arrayEmployee.get(position).getId().toString());
-        holder.txtUserID.setText("User ID : " + arrayEmployee.get(position).getUserId().toString());
-        holder.txtTitle.setText("Title : " + arrayEmployee.get(position).getTitle());
-        holder.txtBody.setText("Body : " + arrayEmployee.get(position).getBody());
+
+        Picasso.get().load(employee.getThumbnailUrl()).into(holder.imgThum);
+        Picasso.get().load(employee.getUrl()).into(holder.imgUrl);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClick.onClick(arrayEmployee.get(position));
+                onClick.onClick(employee);
             }
         });
+
+
 
     }
 
     @Override
     public int getItemCount() {
-        return arrayEmployee.size();
+        return employeeList.size();
     }
 
-//    public void RemoveItem(int i){
-//        arrayShop.remove(i);
-//        notifyDataSetChanged();
-//    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView txtID,txtUserID,txtTitle,txtBody;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgUrl,imgThum;
+        TextView txtAlbum,txtId,txtTitle;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtID = itemView.findViewById(R.id.txtID);
-            txtUserID = itemView.findViewById(R.id.txtUserID);
-            txtTitle= itemView.findViewById(R.id.txtTitle);
-            txtBody = itemView.findViewById(R.id.txtBody);
-
-
+            txtAlbum = itemView.findViewById(R.id.txtAlbum);
+            txtTitle = itemView.findViewById(R.id.txtTitle);
+            txtId    = itemView.findViewById(R.id.txtId);
+            imgThum  = itemView.findViewById(R.id.idThumbnail);
+            imgUrl   = itemView.findViewById(R.id.idImgUrl);
         }
     }
+
 }

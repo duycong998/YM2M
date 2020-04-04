@@ -4,94 +4,85 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.google.gson.annotations.SerializedName;
-
-
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-@Entity (tableName = "employee")
+@Entity(tableName = "picture")
 public class Employee implements Serializable {
+    @ColumnInfo(name = "albumId")
+    @SerializedName("albumId")
+    @Expose
+    private int albumId;
 
-        @ColumnInfo(name = "userId")
-        @SerializedName("userId")
-        @Expose
-        private int userId;
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    @SerializedName("id")
+    @Expose
+    private Integer id;
 
-        @PrimaryKey
-        @ColumnInfo(name = "id")
-        @SerializedName("id")
-        @Expose
-        private Integer id;
+    @ColumnInfo(name = "title")
+    @SerializedName("title")
+    @Expose
+    private String title;
 
-        @ColumnInfo(name = "title")
-        @SerializedName("title")
-        @Expose
-        private String title;
+    @ColumnInfo(name = "url")
+    @SerializedName("url")
+    @Expose
+    private String url;
 
-        @ColumnInfo(name = "body")
-        @SerializedName("body")
-        @Expose
-        private String body;
+    @ColumnInfo(name = "thumbnailUrl")
+    @SerializedName("thumbnailUrl")
+    @Expose
+    private String thumbnailUrl;
 
-
-
-
-//    public Employee(int userId, String title, String body) {
-//        this.userId = userId;
-//        this.title = title;
-//        this.body = body;
-//    }
-
-
-
-    public Employee(int userId, Integer id, String title, String body) {
-        this.userId = userId;
+    public Employee(int albumId, Integer id, String title, String url, String thumbnailUrl) {
+        this.albumId = albumId;
         this.id = id;
         this.title = title;
-        this.body = body;
+        this.url = url;
+        this.thumbnailUrl = thumbnailUrl;
     }
 
-
-//    public Employee(Integer userId, Integer id, String title, String body) {
-//        this.userId = userId;
-//        this.id = id;
-//        this.title = title;
-//        this.body = body;
-//    }
-
-    public Integer getUserId() {
-            return userId;
-        }
-
-        public void setUserId(Integer userId) {
-            this.userId = userId;
-        }
-
-        public Integer getId() {
-            return id;
-        }
-
-        public void setId(Integer id) {
-            this.id = id;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getBody() {
-            return body;
-        }
-
-        public void setBody(String body) {
-            this.body = body;
-        }
-
+    public int getAlbumId() {
+        return albumId;
     }
+
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl = thumbnailUrl;
+    }
+}
 
