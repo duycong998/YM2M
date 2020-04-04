@@ -62,7 +62,7 @@ public class RetrofitActivity extends AppCompatActivity {
             }
         });
         delete.attachToRecyclerView(rsview);
-
+        intentView();
 
 
        // getPicture();
@@ -127,7 +127,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
             @Override
             public void onClick(Employee picture) {
-                Intent intent = new Intent(RetrofitActivity.this, ChiTietCVActivity.class);
+                Intent intent = new Intent(RetrofitActivity.this, ChiTietRetrofitActivity.class);
                 intent.putExtra("congdeptrai", picture);
                 startActivity(intent);
             }
